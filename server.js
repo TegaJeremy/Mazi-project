@@ -6,6 +6,9 @@ const db = require('./config/db')
 const router = require('./router/clientRouter')
 const agentRouter = require ("./router/agentRouter")
 
+const cors = require('cors')
+app.use(cors({origin:"*"}));
+
 app.use(router)
 app.use(agentRouter)
 

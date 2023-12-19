@@ -6,15 +6,15 @@ exports.registerAgent = async (req, res)=>{
     const {email, password} = req.body
 
     const existingEmail = await agentmodel.find({email})
-    if(existingEmail){
-        return res.status(404).json({message:'email already registered'})
-    }
+    // if(existingEmail){
+    //     return res.status(404).json({message:'email already registered'})
+    // }
     const loginPassword = 12345
     const newAgent = new agentmodel ({
         email,
         password : loginPassword
     })
-    if(!password){
+    if(password !== password){
         res.status(404).json({message:"please use the correct and assgined passwored"})
     }
   const savedAgent = await newAgent.save()
